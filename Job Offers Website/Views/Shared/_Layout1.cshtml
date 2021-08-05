@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Page.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/Home" class="navbar-brand">
+                    <img src="~/Images/images (3).png" alt="HTML5 Icon" width="128" height="60"/>                    
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                   
+                    <li>
+                        <a href="~/Home">
+                            <i class="glyphicon glyphicon-home"></i>
+                            الرئسيه
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="~/Home/About">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            حول الموقع
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Home/Contact">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            اتصل بنا
+                        </a>
+
+                    </li>
+                    <li>
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                        {
+                            <input type="text" l name="searchName" id="searchName"
+                                   placeholder="ابحث هنا" />
+
+                        }
+                           
+                    </li>
+
+                </ul>
+               <!--partial-->
+                @Html.Partial("_Loginn")
+            </div>
+        </div>
+
+    </nav>
+    <div class="container mycontainer">
+        <div class="row" style="min-height:250px;">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <footer class="myfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                        من نحن؟
+                    </h3>
+                    <p>
+                        If you didn't have a chance to attend all of your favorite talks, or you want to refresh what you learned at the conference, you can (re)watch recordings of the Keynotes and Sessions on the I/O website at your convenience.
+
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-globe"></i>
+
+                        روابط هامه
+                    </h3>
+                    <ul>
+                        <li><a href="#">وظائف للقطاع العام</a></li>
+                        <li><a href="#">وظائف للقطاع الخاص</a></li>
+                        <li><a href="#">وظائف خارج البلاد</a></li>
+                        <li><a href="#">وظائف متنوعه</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-erase"></i>
+                        تواصل معنا
+                    </h3>
+                    <ul>
+                        <li><a href="#">صفحتنا ع الفيسبوك</a></li>
+                        <li><a href="#">تابعنا علي التويتر</a></li>
+                        <li><a href="#">شاهدنا علي اليوتيوب</a></li>
+                        <li><a href="#">اترك لنا رساله</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="subfooter">
+            <p>جميع الحقوق محفوظه لموقع التوظيف - 2019 </p>
+        </div>
+
+    </footer>
+
+
+
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts",required:false)
+</body>
+</html>
